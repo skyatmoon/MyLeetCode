@@ -1,1 +1,18 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        for i in nums:
+            t = target - i
+            m = nums.index(i)
+            nums[m] = 0.1
+            if t in nums:
+                return [m,nums.index(t)]
+                
+03/16/2021 20:08	Accepted	20 ms	13.5 MB	python
 
+Runtime: 20 ms, faster than 99.95% of Python online submissions for Two Sum.
+Memory Usage: 13.5 MB, less than 52.31% of Python online submissions for Two Sum.
