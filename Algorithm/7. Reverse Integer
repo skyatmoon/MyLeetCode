@@ -1,0 +1,16 @@
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        int_str = str(abs(x))
+        reverse_int = int(int_str[::-1])
+        if reverse_int.bit_length() < 32:
+            return reverse_int if x > 0 else (0 - reverse_int)
+        else:
+            return 0
+            
+03/17/2021 13:58	Accepted	16 ms	13.4 MB	python            
+Runtime: 16 ms, faster than 88.67% of Python online submissions for Reverse Integer.
+Memory Usage: 13.4 MB, less than 40.78% of Python online submissions for Reverse Integer.
