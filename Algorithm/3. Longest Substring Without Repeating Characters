@@ -1,0 +1,23 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        res = 0
+        sub = ""
+        if s:
+            for i in range(len(s)):
+                if s[i] not in sub:
+                    sub += s[i]
+                else:
+                    t = sub.index(s[i])
+                    sub = sub[t+1:] + s[i]
+                l_sub = len(sub)
+                if res < l_sub:
+                    res = l_sub
+        return res
+        
+03/18/2021 14:22	Accepted	40 ms	14.4 MB	python        
+Runtime: 40 ms, faster than 90.52% of Python online submissions for Longest Substring Without Repeating Characters.
+Memory Usage: 14.4 MB, less than 18.16% of Python online submissions for Longest Substring Without Repeating Characters.
