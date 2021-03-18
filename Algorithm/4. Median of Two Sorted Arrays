@@ -1,0 +1,53 @@
+class Solution(object):
+    def findMedianSortedArrays(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: float
+        """
+        n1 = len(nums1)
+        n2 = len(nums2)
+        n = n1 + n2
+        
+        i = 0
+        j = 0
+        
+        min_max = 0
+        max_min = 0
+        
+        if (n1 or n2):
+            for p in range((n/2)+1):
+                if (i < n1 and j < n2) :  
+                    if (nums1[i] < nums2[j]) : 
+                        max_min = min_max 
+                        min_max = nums1[i] 
+                        i += 1
+
+                    else: 
+                        max_min = min_max 
+                        min_max = nums2[j] 
+                        j += 1
+
+                elif(i == n1) : 
+                    max_min = min_max 
+                    min_max = nums2[j] 
+                    j += 1
+
+                elif (j == n2) : 
+                    max_min = min_max 
+                    min_max = nums1[i] 
+                    i += 1
+
+            if (n % 2 == 0): 
+                return (min_max + max_min) * 1.0 / 2
+            else:
+                return min_max 
+        else:
+            return None
+            
+            
+
+
+03/18/2021 17:09	Accepted	76 ms	13.7 MB	python
+Runtime: 76 ms, faster than 63.15% of Python online submissions for Median of Two Sorted Arrays.
+Memory Usage: 13.7 MB, less than 52.37% of Python online submissions for Median of Two Sorted Arrays.
