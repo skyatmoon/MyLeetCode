@@ -1,0 +1,40 @@
+import numpy as np
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        r = ''
+        for i, j in [(i, j) for i in range(len(s)) for j in (0, 1)]:
+            while i > -1 and i + j < len(s) and s[i] == s[i + j]: i, j = i - 1, j + 2
+            r = max(r, s[i + 1:i + j], key=len)
+        return '' if not s else r
+#         ram = {}.fromkeys(s).keys()
+#         list_ram = []
+#         list_len = []
+#         dis = 0
+        
+#         res = ""
+        
+#         for k in ram:
+#             a = [i for i,v in enumerate(s) if v==k]
+#             if dis < len(a):
+#                 dis = len(a)
+#             list_ram.append(a)
+#             list_len.append(dis)
+#         #print(list_ram)
+#         #print(list_len)
+#         if dis == 1:
+#             return s[list_ram[0][0]]
+#         else: 
+#             for i in list_ram:
+#                 for j in range(len(i)):
+#                     p = list_ram[j]
+#                     for k in range(j, len(i)):
+#                         q = list_ram[k]
+#                         if s[p:q] == s[p:q][::-1]:
+#                             res = s[p:q]
+#             return res
+            
+            
