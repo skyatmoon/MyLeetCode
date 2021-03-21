@@ -1,0 +1,20 @@
+import re
+class Solution(object):
+    def myAtoi(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        res = re.findall("^([+-]?\d+).*", s.lstrip())
+        
+        if res:
+            res = int(res[0])
+            return max(min(res, 2**31 - 1), -2**31)
+        else:
+            return 0
+            
+            
+            
+            Runtime: 16 ms, faster than 96.34% of Python online submissions for String to Integer (atoi).
+Memory Usage: 13.9 MB, less than 7.18% of Python online submissions for String to Integer (atoi).
+03/21/2021 17:25	Accepted	16 ms	13.9 MB	python
