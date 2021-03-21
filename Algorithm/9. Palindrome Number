@@ -1,0 +1,11 @@
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        ram = str(x)
+        return (ram == ram[::-1])
+Runtime: 32 ms, faster than 98.98% of Python online submissions for Palindrome Number.
+Memory Usage: 13.4 MB, less than 39.92% of Python online submissions for Palindrome Number.
+03/21/2021 17:41	Accepted	32 ms	13.4 MB	python
