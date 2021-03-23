@@ -1,0 +1,35 @@
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        if not strs:
+            return ''
+        elif len(strs)==1:
+            return strs[0]    
+        else:
+            minstr = min(strs, key=len)
+            rang = len(minstr)
+            length = len(strs)
+            ram = rang
+            rem = rang
+            num = 0
+            for i in range(length):
+                j = ram
+                while j >= 0:
+                    if strs[i][:j:] == minstr[:j:]:
+                        num += 1
+                        if rem > j:
+                            rem = j
+                        j = -1 
+                    j -= 1
+                if num == length:
+                    return minstr[:rem:]
+            return ''
+
+            
+                            
+  Runtime: 16 ms, faster than 94.96% of Python online submissions for Longest Common Prefix.
+Memory Usage: 13.9 MB, less than 12.63% of Python online submissions for Longest Common Prefix.
+03/23/2021 19:36	Accepted	16 ms	13.9 MB	python
